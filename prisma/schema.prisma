@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Tap {
+  id      Int @id @default(autoincrement())
+  user    String  @default("Public")
+  trigger String  @default("No trigger")
+  action  String  @default("No action")
+  streak  Int     @default(0)
+  created Int     @default(0)
+  frequency String @default("Daily")
+}
