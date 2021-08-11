@@ -16,6 +16,8 @@ model Tap {
   user    String  @default("Public")
   trigger String  @default("No trigger")
   action  String  @default("No action")
+  rated   String  @default("false")
+  lastRated Int @default(0)
   streak  Int     @default(0)
   created Int     @default(0)
   frequency String @default("Daily")
